@@ -57,9 +57,6 @@ f:"k"k:*.z.x,""
 /  item, do nothing; otherwise use .Q.s, but split back to list of string
 o:{$[$[@x;10=@x;&/10=@:'x];;`\:.Q.s@]x}
 
-/ extract a plain string from a single line of .z.pi input
-e:{*`\:x}
-
 / accumulate lines
 .z.pi:{t,:x}
 

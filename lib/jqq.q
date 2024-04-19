@@ -57,9 +57,6 @@ f:"q"q:first .z.x,""
 /  item, do nothing; otherwise use .Q.s, but split back to list of string
 o:{$[$[type x;10=type x;all 10=type each x];;` vs .Q.s@]x}
 
-/ extract a plain string from a single line of .z.pi input
-e:{first` vs x}
-
 / accumulate lines
 .z.pi:{t,:x}
 
