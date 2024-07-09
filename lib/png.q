@@ -540,7 +540,7 @@ if[not .finos.png.priv.zlib_test"...";
 
 .finos.png.priv.w.fdAT:{,[0x0 vs "i"$x`idx;.finos.png.priv.w.IDAT x`frame]}
 
-/ .finos.png.priv.w.fcTL:{,[0x0 vs last x;.finos.png.priv.w.IDAT -1_x]}
+// TODO: Make this more configurable
 .finos.png.priv.w.fcTL:{
   sn:0x0 vs "i"$x`idx;
   width:0x0 vs "i"$x`width;
@@ -570,12 +570,16 @@ if[not .finos.png.priv.zlib_test"...";
   0x89504e470d0a1a0a,raze (`IHDR,`acTL,`IDAT,#[2*count y;`fcTL`fdAT],`IEND) f'(enlist[x],(count y),enlist[y[0]],a,(::))}
 
 
-`:2x2.q.png 1:.finos.apng.format[`width`height`bit_depth`color_type`compression_method`filter_method`interlace_method!(2i;2i;8i;`truecolor;0i;0i;`none);(1 rotate m;1 rotate/:m;m:((255 0 0i;0 255 0i);(0 0 255i;0 0 0i)))]
+
 
 // num_frames implied by the count
 // num_plays=0, aka loop infinitely
 
 \
+
+
+`:2x2.q.png 1:.finos.apng.format[`width`height`bit_depth`color_type`compression_method`filter_method`interlace_method!(2i;2i;8i;`truecolor;0i;0i;`none);(1 rotate m;1 rotate/:m;m:((255 0 0i;0 255 0i);(0 0 255i;0 0 0i)))]
+`:test.png 1:.finos.apng.format[`width`height`bit_depth`color_type`compression_method`filter_method`interlace_method!(90i;90i;8i;`truecolor;0i;0i;`none);(1 rotate m;1 rotate/:m;m:(90 90 3)#10000?255i)]
 
 show .finos.png.parse`:4x1.png
 show .finos.png.parse`:1x4.png
